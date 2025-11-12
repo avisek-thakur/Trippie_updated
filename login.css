@@ -13,7 +13,7 @@ body {
   border-radius: 31px;
   padding: 40px;
   position: relative;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  /* Removed box-shadow from login container */
 }
 
 .login-heading {
@@ -61,7 +61,7 @@ body {
   justify-content: space-between;
   font-size: 12px;
   font-weight: 700;
-  margin: 25px 0 30px 0;
+  margin: 25px 0 40px 0; /* Increased bottom margin from 30px to 40px */
 }
 
 .create-account { color: #2B2D42; }
@@ -69,7 +69,7 @@ body {
 .forget-password { color: #EF233C; cursor: pointer; }
 
 .login-button {
-  width: 100%;
+  width: 50%; /* Reduced width from 100% to 50% */
   height: 44px;
   border-radius: 6px;
   border: none;
@@ -79,9 +79,17 @@ body {
   font-size: 15px;
   cursor: pointer;
   transition: all 0.3s ease-out;
+  display: block; /* Ensure it's a block element for centering */
+  margin: 0 auto; /* Center the button */
 }
 
-.login-button:hover { transform: translateX(5px); }
+.login-button:hover { 
+  transform: translateY(-3px); /* Changed from translateX(5px) to lift-up effect */
+}
+
+.login-button:active {
+  transform: translateY(-1px);
+}
 
 @media (max-width: 450px) {
   .login-container { 
@@ -93,5 +101,10 @@ body {
     flex-direction: column; 
     gap: 10px; 
     text-align: center;
+    margin: 25px 0 35px 0; /* Adjusted for mobile */
+  }
+  
+  .login-button {
+    width: 60%; /* Adjusted for mobile with 50% base width */
   }
 }
