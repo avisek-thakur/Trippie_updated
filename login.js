@@ -1,3 +1,4 @@
+
 // Login form validation
 document.getElementById('loginForm').addEventListener('submit', function(e) {
   e.preventDefault();
