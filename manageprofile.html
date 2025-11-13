@@ -1,95 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link rel="stylesheet" href="manageprofile.css" />
-  <title>Manage Profile</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Profile</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="manageprofile.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-white">
+    <!-- Standardized Navigation Bar -->
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <span>✈️</span>
+        <h1>Activity Booking</h1>
+      </div>
 
-  <!-- NAVBAR -->
-  <nav class="w-screen h-12 bg-white flex justify-between items-center px-8 shadow-sm">
-    <div class="flex items-center gap-3 cursor-pointer" id="homeLogo">
-      <span class="text-xl">✈️</span>
-      <h1 class="font-bold text-lg">Activity Booking</h1>
+      <div class="navbar-avatar-container">
+        <img
+          class="navbar-avatar"
+          src="https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211467.png"
+          alt="User avatar"
+        />
+        <div class="navbar-avatar-menu">
+          <div class="navbar-menu-item" id="navbarManageProfile">Manage profile</div>
+          <div class="navbar-menu-item" id="navbarViewBooking">View Booking</div>
+          <button class="navbar-logout-btn" id="navbarLogout">Log Out</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="py-10">
+        <h2 class="text-4xl font-extrabold text-center">Manage Profile</h2>
+    </header>
+
+    <!-- Profile Card -->
+    <main class="flex justify-center pb-24 relative">
+        <section class="profile-card">
+            <!-- Form Fields Column -->
+            <div class="form-col">
+                <div class="field">
+                    <label for="firstName">First Name</label>
+                    <input id="firstName" type="text" placeholder="First name" />
+                    <div class="error-message" id="firstNameError">First name is required</div>
+                </div>
+                <div class="field">
+                    <label for="lastName">Last Name</label>
+                    <input id="lastName" type="text" placeholder="Last name" />
+                    <div class="error-message" id="lastNameError">Last name is required</div>
+                </div>
+                <div class="field">
+                    <label for="phone">Phone</label>
+                    <input id="phone" type="text" placeholder="Phone number" />
+                    <div class="error-message" id="phoneError">Please enter a valid phone number</div>
+                </div>
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" placeholder="example@example.com" />
+                    <div class="error-message" id="emailError">Please enter a valid email address</div>
+                </div>
+            </div>
+
+            <!-- Avatar and Password Column -->
+            <div class="side-col">
+                <div class="avatar-circle" id="profilePicture">
+                    <div class="upload-overlay">
+                        <i class="fas fa-camera"></i> Change Photo
+                    </div>
+                </div>
+                <div class="tap-text">Tap To Change Profile Picture</div>
+
+                <div class="pw-field">
+                    <label for="password">Change Your Password</label>
+                    <input id="password" type="password" placeholder="••••••••••••••••" />
+                    <button class="password-toggle" id="passwordToggle">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <div class="error-message" id="passwordError">Password must be at least 6 characters</div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="actions">
+                <button id="cancelBtn" class="btn-cancel">Cancel</button>
+                <button id="saveBtn" class="btn-save">Save Changes</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        <i class="fas fa-check-circle"></i>
+        <span>Profile updated successfully!</span>
     </div>
 
-    <div class="relative flex flex-col items-center">
-      <img
-        class="h-8 w-8 cursor-pointer avatar rounded-full"
-        src="https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211467.png"
-        alt="avatar"
-      />
-      <div
-        class="avatar-menu absolute p-2 bg-white opacity-0 rounded-b-xl flex flex-col items-center justify-around shadow"
-      >
-        <div class="menu-item w-[90%] py-2 text-center rounded-xl hover:bg-[#2B2D42] hover:text-white cursor-pointer" id="manageProfileBtn">Manage profile</div>
-        <div class="menu-item w-[90%] py-2 text-center rounded-xl hover:bg-[#2B2D42] hover:text-white cursor-pointer" id="viewBookingBtn">View Booking</div>
-        <button class="bg-[#EF233C] hover:bg-[#A41728] text-white w-3/4 rounded-2xl py-2" id="logoutBtn">Log Out</button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Title -->
-  <header class="py-10">
-    <h2 class="text-4xl font-extrabold text-center">Manage Profile</h2>
-  </header>
-
-  <!-- Profile Card -->
-  <main class="flex justify-center pb-24 relative">
-    <section class="profile-card">
-      <!-- Left column: form fields -->
-      <div class="form-col">
-        <div class="field">
-          <label for="firstName">First Name</label>
-          <input id="firstName" type="text" placeholder="First name" />
-        </div>
-        <div class="field">
-          <label for="lastName">Last Name</label>
-          <input id="lastName" type="text" placeholder="Last name" />
-        </div>
-        <div class="field">
-          <label for="phone">Phone</label>
-          <input id="phone" type="text" placeholder="Phone number" />
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" type="email" placeholder="example@example.com" />
-        </div>
-      </div>
-
-      <!-- Right column: avatar + password -->
-      <div class="side-col">
-        <div class="avatar-circle" id="profilePicture"></div>
-        <div class="tap-text">Tap To Profile Picture</div>
-
-        <!-- Image Upload Section - ADDED HERE -->
-        <div class="image-upload-section">
-          <div class="image-large" id="imgPreviewMain"></div>
-          <div class="image-row">
-            <div class="img-box" id="imgPreview1"></div>
-            <div class="img-box" id="imgPreview2"></div>
-            <div class="img-box" id="imgPreview3"></div>
-          </div>
-          <input type="file" id="imageInput" accept="image/*" style="display: none;">
-        </div>
-
-        <div class="pw-field">
-          <label for="password">Change Your Password</label>
-          <input id="password" type="password" placeholder="••••••••••••••••" />
-        </div>
-      </div>
-
-      <!-- Buttons -->
-      <div class="actions">
-        <button id="cancelBtn" class="btn-cancel">Cancel</button>
-        <button id="saveBtn" class="btn-save">Save Changes</button>
-      </div>
-    </section>
-  </main>
-
-  <script src="manageprofile.js"></script>
+    <script src="navbar.js"></script>
+    <script src="manageprofile.js"></script>
 </body>
 </html>
