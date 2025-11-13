@@ -1,5 +1,6 @@
 
 
+
 // Function to render activities
 const container = document.getElementById('activitiesContainer');
 
