@@ -1,52 +1,6 @@
-// homepage.js - UPDATED
-import { faker } from "https://esm.sh/@faker-js/faker";
+// homepage.js - Only homepage-specific functionality
 
-// ✅ Navbar dropdown toggle - Same as manageprofile.html
-const avatar = document.querySelector(".avatar");
-const avatarMenu = document.querySelector(".avatar-menu");
-
-if (avatar) {
-  avatar.addEventListener("click", () => {
-    avatarMenu.classList.toggle("show");
-  });
-}
-
-// ✅ Navigation functionality for dropdown menu
-document.addEventListener('DOMContentLoaded', function() {
-  // Home logo navigation
-  const homeLogo = document.querySelector('.logo, .flex.items-center.gap-3');
-  if (homeLogo) {
-    homeLogo.addEventListener('click', function() {
-      window.location.href = "homepage.html";
-    });
-  }
-
-  // Manage Profile navigation
-  const manageProfileBtn = document.getElementById('manageProfileBtn');
-  if (manageProfileBtn) {
-    manageProfileBtn.addEventListener('click', function() {
-      window.location.href = "manageprofile.html";
-    });
-  }
-
-  // View Booking navigation
-  const viewBookingBtn = document.getElementById('viewBookingBtn');
-  if (viewBookingBtn) {
-    viewBookingBtn.addEventListener('click', function() {
-      window.location.href = "recentbook.html";
-    });
-  }
-
-  // Log Out functionality
-  const logoutBtn = document.getElementById('logoutBtn');
-  if (logoutBtn) {
-    logoutBtn.addEventListener('click', function() {
-      window.location.href = "login.html";
-    });
-  }
-});
-
-// ✅ COMPREHENSIVE ACTIVITIES DATA
+// Activities data
 const activities = [
   {
     id: 1,
@@ -57,7 +11,7 @@ const activities = [
   },
   {
     id: 2,
-    name: "Cultural Heritage Tour", 
+    name: "Cultural Heritage Tour",
     location: "Lalitpur, Nepal",
     rating: 4.5,
     image: "https://insidehimalayas.com/wp-content/uploads/2018/05/8607410916_3764f3530f_b-1024x683.jpg"
@@ -92,55 +46,52 @@ const activities = [
   }
 ];
 
-// ✅ Function to display activities
+document.addEventListener('DOMContentLoaded', function () {
+  // Search functionality
+  const searchCircle = document.querySelector('.search-circle');
+  if (searchCircle) {
+    searchCircle.addEventListener('click', function () {
+      alert('Search functionality will be implemented with backend integration');
+    });
+  }
+
+  // Display activities
+  displayActivities();
+});
+
+// Display activities function
 function displayActivities() {
   const content = document.getElementById("content");
-  
+
   if (!content) {
     console.error('Content container not found');
     return;
   }
 
   content.innerHTML = activities.map(activity => `
-    <div class="cursor-pointer activity-card" data-activity-id="${activity.id}">
-      <div class="max-h-[90%] w-full relative">
-        <img
-          class="z-0 w-full h-60 rounded-3xl object-cover"
-          src="${activity.image}"
-          alt="${activity.name}"
-        />
-        <div class="absolute font-semibold bg-white text-black rounded-2xl p-2 bottom-2 right-2 z-10 text-sm">
-          ⭐ ${activity.rating} / 5
+        <div class="cursor-pointer activity-card" data-activity-id="${activity.id}">
+            <div class="max-h-[90%] w-full relative">
+                <img
+                    class="z-0 w-full h-60 rounded-3xl object-cover"
+                    src="${activity.image}"
+                    alt="${activity.name}"
+                />
+                <div class="absolute font-semibold bg-white text-black rounded-2xl p-2 bottom-2 right-2 z-10 text-sm">
+                    ⭐ ${activity.rating} / 5
+                </div>
+            </div>
+            <div class="py-2">
+                <h3 class="font-bold text-xl text-gray-800">${activity.name}</h3>
+                <p class="font-semibold text-lg text-gray-600">${activity.location}</p>
+            </div>
         </div>
-      </div>
-      <div class="py-2">
-        <h3 class="font-bold text-xl text-gray-800">${activity.name}</h3>
-        <p class="font-semibold text-lg text-gray-600">${activity.location}</p>
-      </div>
-    </div>
-  `).join('');
+    `).join('');
 
   // Add click event listeners to activity cards
   document.querySelectorAll('.activity-card').forEach(card => {
-    card.addEventListener('click', function() {
+    card.addEventListener('click', function () {
       const activityId = this.getAttribute('data-activity-id');
-      // FIXED: Changed from activity-details.html to details.html
       window.location.href = `details.html?id=${activityId}`;
     });
   });
 }
-
-// ✅ Initialize the page when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-  displayActivities();
-});
-
-// ✅ Search functionality placeholder
-document.addEventListener('DOMContentLoaded', function() {
-  const searchCircle = document.querySelector('.search-circle');
-  if (searchCircle) {
-    searchCircle.addEventListener('click', function() {
-      alert('Search functionality will be implemented with backend integration');
-    });
-  }
-});
