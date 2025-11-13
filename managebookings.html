@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Manage Bookings</title>
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="sidebar.css">
+  <!-- Page Specific CSS -->
   <link rel="stylesheet" href="managebookings.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <!-- Sidebar -->
@@ -30,7 +35,7 @@
       <h2 class="page-title">Manage Bookings</h2>
     </header>
 
-    <!-- Bookings Table -->
+    <!-- Bookings Table Container -->
     <section class="bookings-table-container" aria-labelledby="bookingsHeading">
       <!-- Header bar (rounded) -->
       <div class="table-header-row" role="presentation">
@@ -42,24 +47,29 @@
         <div class="header-cell slots">No of Slots</div>
       </div>
 
-      <!-- Table body (scrollable if many rows) -->
+      <!-- Table body using same flexbox structure -->
       <div class="table-body-wrapper">
-        <table class="bookings-table" id="bookingsTable" aria-describedby="bookingsHeading">
-          <tbody id="bookingTableBody">
-            <!-- JS populates rows here -->
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Pagination -->
-      <div class="table-pagination" id="pagination">
-        <button class="pagination-btn arrow-prev" id="prevPage" aria-label="Previous page">&lt;</button>
-        <div class="pagination-page-number" id="currentPage">1</div>
-        <button class="pagination-btn arrow-next" id="nextPage" aria-label="Next page">&gt;</button>
+        <div class="table-body-rows">
+          <!-- JS will populate rows here -->
+        </div>
       </div>
     </section>
+
+    <!-- Pagination -->
+    <div class="table-pagination" id="pagination">
+      <button class="pagination-btn arrow-prev" id="prevPage" aria-label="Previous page">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <div class="pagination-page-number" id="currentPage">1</div>
+      <button class="pagination-btn arrow-next" id="nextPage" aria-label="Next page">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
   </section>
 
+  <!-- Shared JavaScript -->
+  <script src="common.js"></script>
+  <!-- Page Specific JavaScript -->
   <script src="managebookings.js"></script>
 </body>
 </html>
