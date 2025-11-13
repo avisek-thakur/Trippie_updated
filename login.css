@@ -1,110 +1,145 @@
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
-body { 
-  background-color: #f5f5f5; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
 }
 
+body {
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Login container */
 .login-container {
-  width: 404px;
-  background-color: #EDF2F4;
-  border-radius: 31px;
-  padding: 40px;
-  position: relative;
-  /* Removed box-shadow from login container */
+    width: 404px;
+    background-color: #EDF2F4;
+    border-radius: 31px;
+    padding: 40px;
+    position: relative;
 }
 
+/* Header styles */
 .login-heading {
-  font-size: 32px;
-  font-weight: 700;
-  color: #000;
-  text-align: center;
-  margin-bottom: 10px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .login-subheading {
-  font-size: 12px;
-  font-weight: 700;
-  color: #000;
-  text-align: center;
-  margin-bottom: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
+/* Form styles */
 .form-group {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
-.email-label, .password-label {
-  font-size: 12px;
-  font-weight: 700;
-  color: #2B2D42;
-  display: block;
-  margin-bottom: 8px;
+.email-label,
+.password-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #2B2D42;
+    display: block;
+    margin-bottom: 8px;
 }
 
-.email-input, .password-input {
-  width: 100%;
-  height: 46px;
-  border-radius: 6px;
-  border: none;
-  background-color: #fff;
-  box-shadow: 0px 0px 4px #00000040;
-  padding: 12px;
-  font-size: 14px;
-  outline: none;
+.email-input,
+.password-input {
+    width: 100%;
+    height: 46px;
+    border-radius: 6px;
+    border: none;
+    background-color: #fff;
+    box-shadow: 0px 0px 4px #00000040;
+    padding: 12px;
+    font-size: 14px;
+    outline: none;
 }
 
+.email-input:focus,
+.password-input:focus {
+    box-shadow: 0px 0px 4px #EF233C;
+}
+
+/* Footer links */
 .login-footer {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  font-weight: 700;
-  margin: 25px 0 40px 0; /* Increased bottom margin from 30px to 40px */
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 25px 0 40px 0;
 }
 
-.create-account { color: #2B2D42; }
-.create-account span { color: #EF233C; text-decoration: underline; cursor: pointer; }
-.forget-password { color: #EF233C; cursor: pointer; }
+.create-account {
+    color: #2B2D42;
+}
 
+.create-account span {
+    color: #EF233C;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.forget-password {
+    color: #EF233C;
+    cursor: pointer;
+}
+
+.create-account span:hover,
+.forget-password:hover {
+    opacity: 0.8;
+}
+
+/* Login button */
 .login-button {
-  width: 50%; /* Reduced width from 100% to 50% */
-  height: 44px;
-  border-radius: 6px;
-  border: none;
-  background-color: #EF233C;
-  color: #fff;
-  font-weight: 700;
-  font-size: 15px;
-  cursor: pointer;
-  transition: all 0.3s ease-out;
-  display: block; /* Ensure it's a block element for centering */
-  margin: 0 auto; /* Center the button */
+    width: 50%;
+    height: 44px;
+    border-radius: 6px;
+    border: none;
+    background-color: #EF233C;
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    display: block;
+    margin: 0 auto;
 }
 
-.login-button:hover { 
-  transform: translateY(-3px); /* Changed from translateX(5px) to lift-up effect */
+.login-button:hover {
+    transform: translateY(-3px);
 }
 
 .login-button:active {
-  transform: translateY(-1px);
+    transform: translateY(-1px);
 }
 
+/* Mobile responsiveness */
 @media (max-width: 450px) {
-  .login-container { 
-    width: 90%; 
-    padding: 30px 20px;
-  }
-  
-  .login-footer { 
-    flex-direction: column; 
-    gap: 10px; 
-    text-align: center;
-    margin: 25px 0 35px 0; /* Adjusted for mobile */
-  }
-  
-  .login-button {
-    width: 60%; /* Adjusted for mobile with 50% base width */
-  }
+    .login-container {
+        width: 90%;
+        padding: 30px 20px;
+    }
+    
+    .login-footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        margin: 25px 0 35px 0;
+    }
+    
+    .login-button {
+        width: 60%;
+    }
 }
