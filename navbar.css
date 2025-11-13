@@ -1,0 +1,150 @@
+/* navbar.css - Standardized navigation styles for all pages */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Standardized Navigation Bar */
+.navbar {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    background: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.125rem;
+}
+
+.navbar-logo span {
+    font-size: 1.25rem;
+}
+
+.navbar-logo h1 {
+    font-weight: 700;
+}
+
+/* Avatar Dropdown - Standardized */
+.navbar-avatar-container {
+    position: relative;
+}
+
+.navbar-avatar {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+.navbar-avatar-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+    background: white;
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    width: 160px;
+    padding: 0.5rem;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 140px;
+}
+
+.navbar-avatar-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.navbar-menu-item {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    width: 90%;
+}
+
+.navbar-menu-item:hover {
+    background: #2B2D42;
+    color: white;
+}
+
+.navbar-logout-btn {
+    background: #EF233C;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 75%;
+}
+
+.navbar-logout-btn:hover {
+    background: #A41728;
+}
+
+/* Responsive Design for Navbar */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 1rem;
+        height: 2.75rem;
+    }
+    
+    .navbar-logo {
+        font-size: 1rem;
+    }
+    
+    .navbar-logo span {
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        height: 2.5rem;
+    }
+    
+    .navbar-logo h1 {
+        font-size: 0.9rem;
+    }
+    
+    .navbar-avatar-menu {
+        width: 140px;
+        height: 130px;
+    }
+    
+    .navbar-menu-item {
+        font-size: 0.8rem;
+        padding: 0.4rem;
+    }
+}
