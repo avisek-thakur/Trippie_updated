@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Manage Admin Profile</title>
-  <link rel="stylesheet" href="manageadminprofile.css">
+  <!-- Remove Tailwind CDN if not needed, or keep if used elsewhere -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="sidebar.css" />
+  <!-- Page Specific CSS -->
+  <link rel="stylesheet" href="manageadminprofile.css" />
 </head>
 <body>
   <!-- Sidebar -->
@@ -25,65 +31,75 @@
 
   <!-- Main Content -->
   <section class="main">
-    <!-- Title -->
+    <!-- Page Header -->
     <header class="page-header">
-      <h2 class="page-title" >Manage Profile</h2>
+      <h2 class="page-title">Manage Profile</h2>
     </header>
 
     <!-- Profile Card -->
     <div class="profile-container">
-      <div class="profile-card">
-        <!-- Left column: form fields -->
+      <section class="profile-card">
+        <!-- Form Fields Column -->
         <div class="form-col">
           <div class="field">
             <label for="firstName">First Name</label>
             <input id="firstName" type="text" placeholder="First name" />
+            <div class="error-message" id="firstNameError">First name is required</div>
           </div>
           <div class="field">
             <label for="lastName">Last Name</label>
             <input id="lastName" type="text" placeholder="Last name" />
+            <div class="error-message" id="lastNameError">Last name is required</div>
           </div>
           <div class="field">
             <label for="phone">Phone</label>
             <input id="phone" type="text" placeholder="Phone number" />
+            <div class="error-message" id="phoneError">Please enter a valid phone number</div>
           </div>
           <div class="field">
             <label for="email">Email</label>
             <input id="email" type="email" placeholder="example@example.com" />
+            <div class="error-message" id="emailError">Please enter a valid email address</div>
           </div>
         </div>
 
-        <!-- Right column: avatar + password + image upload -->
+        <!-- Avatar and Password Column -->
         <div class="side-col">
-          <div class="avatar-circle" id="profilePicture"></div>
-          <div class="tap-text">Tap To Profile Picture</div>
-
-          <!-- Image Upload Section -->
-          <div class="image-upload-section">
-            <div class="image-large" id="imgPreviewMain"></div>
-            <div class="image-row">
-              <div class="img-box" id="imgPreview1"></div>
-              <div class="img-box" id="imgPreview2"></div>
-              <div class="img-box" id="imgPreview3"></div>
+          <div class="avatar-circle" id="profilePicture">
+            <div class="upload-overlay">
+              <i class="fas fa-camera"></i> Change Photo
             </div>
-            <input type="file" id="imageInput" accept="image/*" style="display: none;">
           </div>
+          <div class="tap-text">Tap To Change Profile Picture</div>
 
           <div class="pw-field">
             <label for="password">Change Your Password</label>
             <input id="password" type="password" placeholder="••••••••••••••••" />
+            <button class="password-toggle" id="passwordToggle">
+              <i class="fas fa-eye"></i>
+            </button>
+            <div class="error-message" id="passwordError">Password must be at least 6 characters</div>
           </div>
         </div>
 
-        <!-- Buttons -->
+        <!-- Action Buttons -->
         <div class="actions">
           <button id="cancelBtn" class="btn-cancel">Cancel</button>
           <button id="saveBtn" class="btn-save">Save Changes</button>
         </div>
-      </div>
+      </section>
     </div>
   </section>
 
+  <!-- Success Message -->
+  <div class="success-message" id="successMessage">
+    <i class="fas fa-check-circle"></i>
+    <span>Profile updated successfully!</span>
+  </div>
+
+  <!-- Shared JavaScript -->
+  <script src="common.js"></script>
+  <!-- Page Specific JavaScript -->
   <script src="manageadminprofile.js"></script>
 </body>
 </html>
